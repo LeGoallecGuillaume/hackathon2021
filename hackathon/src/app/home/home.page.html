@@ -1,0 +1,34 @@
+
+<ion-header >
+    <ion-toolbar>
+      <ion-title size="medium">
+        Dock companion
+      </ion-title>
+    <ion-buttons slot="start">
+      <ion-button > 
+        <ion-icon name="funnel"></ion-icon>
+      </ion-button>
+      <ion-button  (click)="go()">
+        <ion-icon name="bar-chart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)= "clickSearchButton()"> 
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+
+  </ion-header>
+  <ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFiltre()" *ngIf="showSearchBar">
+    </ion-searchbar>
+
+  <ion-list>
+    <app-message *ngFor="let message of filteredMessages" [message]="message"></app-message>
+  </ion-list>
+</ion-content>

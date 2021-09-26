@@ -1,0 +1,51 @@
+<ion-item *ngIf="message" [routerLink]="'/message/' + message.id" [detail]="false">
+
+  <ion-grid class="box-shadow row-color ">
+    <ion-row class="ion-align-item-center ion-justify-content-center" >
+      <ion-col>
+        <ion-label>
+          <ion-icon  style="color: blue;"size="large"  name="time-outline"></ion-icon> 
+          {{message.datefin}}
+        </ion-label>
+      </ion-col>
+      <ion-col>
+      <ion-label > {{message.porte}}
+        <ion-icon style="color: blue;"size="large"  name="pin" ></ion-icon>
+      </ion-label>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-label> <strong> Voyage : </strong> {{message.voyage}}</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label> <strong>Tournée : </strong>  {{message.tourne}}</ion-label>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-label>{{message.transporteur}}</ion-label>
+      </ion-col>
+    </ion-row>
+    
+    
+    <ion-row>
+      <ion-col>
+        <ion-label> <strong>POS : </strong>  {{message.nbpos}}</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label><ion-icon name="thermometer" ></ion-icon> <strong>{{message.temperature}}</strong> </ion-label>
+        
+      </ion-col>
+      <ion-col >
+        <ion-grid>
+          <ion-row><ion-label color="tempAlert" > <strong>UM : </strong>  {{message.nbum}} </ion-label></ion-row>
+          <ion-row><strong>T : </strong> {{message.tonnage}} </ion-row>
+        </ion-grid>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
